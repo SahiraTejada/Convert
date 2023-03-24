@@ -1,0 +1,103 @@
+{% extends "index.html" %}
+{% block content %}
+<style>
+    .square {
+        border-radius: 15px;
+        width: 300px;
+        height: 80px;
+        border: 3px  cornflowerblue solid;
+    }
+
+    .container {
+        display: flex;
+        justify-content: space-evenly;
+        margin-top: 60px;
+
+    }
+
+    .arrow {
+        font-size: 50px;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+    }
+
+    h2 {
+        margin: 10px;
+    }
+
+    button {
+        outline: none;
+        background-color:  rgb(77, 133, 238);
+        padding: 8px;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        margin-left: 120px;
+        margin-top: 25px;
+        font-weight: 600;
+
+    }
+    .btn-back{
+        outline: none;
+        background-color: lightgrey;
+        padding: 10px 14px;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        font-weight: 600;
+        margin-top:-20px;
+        position: absolute;
+        top:0;
+    }
+    .text{
+    flex: 1;
+    font-family: inherit;
+    overflow: auto hidden;
+    padding: 0;
+    resize: none;
+    white-space: pre-wrap;
+    width: 100%;
+    border: 3px  cornflowerblue solid;
+    border-radius: 10px;
+    height: 100%;
+    font-size: 20px;
+    font-weight: 600;
+    }
+    .text-container{
+        max-width: 300px;
+        max-height: 100px;
+    }
+
+    .result p{
+        font-size: 20px;
+        font-weight: 600;
+    }
+    .result{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+</style>
+<a href="/"> <button style="margin-left:20px;" class="btn-back">Back</button></a>
+<h2>ASCII to character</h2>
+<div class="container">
+    <div class="text-container">
+    <form action="/ascii" method="POST">
+    <textarea name="ascii" id="ascii" cols="50" rows="3" class="text"></textarea>
+    <button type="submit">Convert</button>
+    </form>
+    </div>
+    <div class="arrow">
+        →
+    </div>
+    <div class="square result">
+    {% if bmi %}
+    <p>{{bmi}}</p>
+    {% endif %}
+    </div>
+</div>
+
+{% endblock %}
